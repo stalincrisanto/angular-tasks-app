@@ -1,0 +1,93 @@
+<!-- <div class="d-flex justify-content-center align-items-center gap-2">
+    <button type="button" class="btn btn-primary btn-lg">New task</button>
+  </div> -->
+<div
+  class="d-grid gap-2 col-2 mx-auto"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  <button class="btn btn-primary btn-lg" type="button">New task</button>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          New Task information
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="nameTask"
+            placeholder="Name"
+          />
+          <label for="nameTask">Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            multiple
+            class="form-control"
+            id="descriptionTask"
+            placeholder="Description"
+          />
+          <label for="descriptionTask">Description</label>
+        </div>
+        <div class="form-floating">
+          <select
+            class="form-select"
+            id="priority"
+            aria-label="Floating label select example"
+          >
+            <option selected>Select priority</option>
+            <option value="1">high</option>
+            <option value="2">middle</option>
+            <option value="3">slow</option>
+          </select>
+          <label for="floatingSelect">Priority</label>
+        </div>
+        <br/>
+        <div class="form-floating mb-3">
+          <input
+            type="date"
+            class="form-control"
+            id="startDate"
+            placeholder="Start date"
+          />
+          <label for="descriptionTask">Start date</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="date"
+            class="form-control"
+            id="dueDate"
+            placeholder="Due date"
+          />
+          <label for="descriptionTask">Due date</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Add task</button>
+      </div>
+    </div>
+  </div>
+</div>
