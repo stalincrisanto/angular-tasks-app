@@ -5,6 +5,8 @@ import { MainComponent } from './main/main.component';
 import { ModalComponent } from './modal/modal.component';
 import { FiltersComponent } from './filters/filters.component';
 import { ListComponent } from './list/list.component';
+import { TaskSService } from './services/tasks.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,11 @@ import { ListComponent } from './list/list.component';
     MainComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
+  ],
+  providers: [
+    TaskSService
   ]
 })
 export class TasksModule { }
