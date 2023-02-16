@@ -8,16 +8,10 @@ import { Task } from '../types/types';
   templateUrl: './list.component.html',
 })
 export class ListComponent {
-  tasksList: Task[] = this.taskService.getTasks;
-  formatTasks: any;
 
   constructor(private taskService: TaskSService) {}
 
-  ngOnInit(): void {
-    this.formatTasks = this.formatedTasks();
-  }
-
-  formatedTasks () {
+  get tasksList () {
     const formatTask = this.taskService.getTasks.map((task) => {
       return {
         ...task,
@@ -25,7 +19,10 @@ export class ListComponent {
         dueDate: dayjs(task.dueDate).format('dddd, MMMM D, YYYY')
       }
     })
-    console.log("datos de la fechas", formatTask)
     return formatTask;
+  }
+
+  deleteTask(id: string){
+    this.taskService.deleteTask(id);
   }
 }
