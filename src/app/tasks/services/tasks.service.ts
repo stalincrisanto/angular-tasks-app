@@ -13,7 +13,8 @@ export class TaskSService {
       description: "es la primera tarea",
       priority: "medium",
       startDate: new Date(),
-      dueDate: new Date()
+      dueDate: new Date(),
+      isCompleted: false
     },
     {
       id: "71ca8bc9-72fc-4df8-ba99-c3c1a709460f",
@@ -21,7 +22,8 @@ export class TaskSService {
       description: "es una descripción de la segunda tarea",
       priority: "high",
       startDate: new Date(),
-      dueDate: new Date()
+      dueDate: new Date(),
+      isCompleted: false
     },
   ];
 
@@ -32,13 +34,22 @@ export class TaskSService {
   constructor() { }
 
   public addTask (task: Task) {
+    console.log("esto llega");
     this.tasks.push(task);
   }
 
   public deleteTask (id: string){
-    const task = this.tasks.find(el => el.id === id);
+    const task = this.getTask(id);
     const index = this.tasks.indexOf(task!);
     this.tasks.splice(index,1);
+  }
+
+  public completeTask(id: string){
+    console.log("llegue");
+  }
+
+  public getTask(id: string): Task {
+    return this.tasks.find(task => task.id === id)!;
   }
 }
 

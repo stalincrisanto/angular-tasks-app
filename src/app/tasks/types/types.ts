@@ -6,5 +6,6 @@ export interface Task {
   description: string;
   priority: Priority,
   startDate: Date | null,
-  dueDate: Date | null
+  dueDate: Date | null,
+  isCompleted?: boolean
 }

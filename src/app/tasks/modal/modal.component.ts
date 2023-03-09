@@ -21,7 +21,7 @@ export class ModalComponent {
 
   public addTask(): void {
     const id = uuid();
-    this.taskService.addTask({...this.newTask, id});
+    this.taskService.addTask({...this.newTask, id, isCompleted: false});
     this.newTask = {
       id: '',
       name: '',

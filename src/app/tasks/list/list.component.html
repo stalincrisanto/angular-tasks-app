@@ -10,22 +10,29 @@
       <li
         class="list-group-item d-flex align-items-center ps-4 pe-3 py-1 rounded-0 border-0 bg-transparent"
       >
-        <div class="form-check">
-          <input
-            class="form-check-input me-0"
-            type="checkbox"
-            value=""
-          />
-        </div>
+        <!-- <div class="form-check">
+          <input class="form-check-input me-0" type="checkbox" />
+        </div> -->
       </li>
       <li
         class="list-group-item px-2 d-flex align-items-center flex-grow-1 border-0 bg-transparent"
       >
         <div>
           <div style="display: flex">
-            <p class="lead fw-normal mb-0">{{ task.name }}</p>
+            <p class="lead fw-normal mb-0" *ngIf="task.isCompleted; else noCompleted">
+              <s>{{ task.name }}</s>
+            </p>
+            <ng-template #noCompleted>
+              <p class="lead fw-normal mb-0">
+                {{ task.name }}
+              </p>
+            </ng-template>
+
             <div>
-              <span class="badge text-bg-secondary" style="margin-left: 15px">
+              <span
+                [class]="priorityStyle(task.priority!)"
+                style="margin-left: 15px"
+              >
                 {{ task.priority }}
               </span>
             </div>
@@ -33,9 +40,11 @@
           <p class="small mb-0" style="color: silver">{{ task.description }}</p>
           <h6 style="font-size: small; padding-top: 3px">
             Due date
-            <span class="badge rounded-pill bg-info" style="background-color: #E45F5F!important;">{{
-              task.dueDate
-            }}</span>
+            <span
+              class="badge rounded-pill bg-info"
+              style="background-color: #5fdbe4 !important"
+              >{{ task.dueDate }}</span
+            >
           </h6>
         </div>
       </li>
@@ -43,9 +52,9 @@
         class="list-group-item ps-3 pe-0 py-3 rounded-0 border-0 bg-transparent"
       >
         <div class="d-flex flex-row justify-content-end mb-1">
-          <button class="btn btn-primary" (click)="deleteTask(task.id)">
+          <!-- <button class="btn btn-primary" (click)="deleteTask(task.id)">
             <i class="bi bi-pencil-fill"></i> Edit
-          </button>
+          </button> -->
           &nbsp;&nbsp;
           <button class="btn btn-danger" (click)="deleteTask(task.id)">
             <i class="bi bi-trash-fill"></i> Delete
